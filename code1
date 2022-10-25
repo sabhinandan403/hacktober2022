@@ -1,0 +1,68 @@
+def isBalanced(expression):
+    lst=[]
+    i=0
+    while i<len(expression):
+        if expression[0]==')':
+            return False
+            break
+        elif expression[i]=='(':
+            lst.append(expression[i])
+            i+=1
+
+            continue
+        elif expression[i]==')' and i>0:
+            index = len(lst)-1
+            lst.pop(index)
+            i+=1
+            continue
+        else:
+            return  False
+            break
+    if len(lst)!=0:
+        return False
+
+    return True
+
+expression = '(()()())'
+expression=expression.strip()
+print(isBalanced(expression))
+
+from sys import stdin
+
+
+def isBalanced(expression):
+    # Your code goes here
+    lst = []
+    i = 0
+    while i < len(expression):
+        if expression[0] == ')':
+            return False
+            break
+        elif expression[i] == '(':
+            lst.append(expression[i])
+            i += 1
+
+            continue
+        elif expression[i] == ')' and i > 0:
+            index = len(lst) - 1
+            lst.pop(index)
+            i += 1
+            continue
+        else:
+            return False
+            break
+    if len(lst) != 0:
+        return False
+
+    return True
+
+# main
+expression = stdin.readline().strip()
+
+if isBalanced(expression):
+    print("true")
+
+else:
+    print("false")
+
+
